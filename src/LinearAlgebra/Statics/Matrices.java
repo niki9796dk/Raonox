@@ -2,6 +2,7 @@ package LinearAlgebra.Statics;
 
 import DataStructures.Atomics.AtomicDouble;
 import DataStructures.FunctionalInterfaces.TriConsumer;
+import DataStructures.Pair;
 import LinearAlgebra.Execution.Parallel;
 import LinearAlgebra.Statics.Enums.MatrixDirection;
 import LinearAlgebra.Types.Matrices.InternalStorageTypes.SparseDynamicMatrixStorage;
@@ -11,7 +12,6 @@ import LinearAlgebra.Types.Matrices.OnehotMatrix;
 import LinearAlgebra.Types.Matrices.SparseMatrix;
 import LinearAlgebra.Types.Vectors.Vector;
 import LinearAlgebra.Types.Vectors.VectorBuilder;
-import javafx.util.Pair;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

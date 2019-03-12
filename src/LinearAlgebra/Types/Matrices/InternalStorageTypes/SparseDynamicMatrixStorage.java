@@ -1,6 +1,6 @@
 package LinearAlgebra.Types.Matrices.InternalStorageTypes;
 
-import javafx.util.Pair;
+import DataStructures.Pair;
 
 import java.util.HashMap;
 import java.util.Map;

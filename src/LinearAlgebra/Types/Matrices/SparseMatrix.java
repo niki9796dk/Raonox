@@ -1,7 +1,7 @@
 package LinearAlgebra.Types.Matrices;
 
+import DataStructures.Pair;
 import LinearAlgebra.Types.Matrices.InternalStorageTypes.SparseDynamicMatrixStorage;
-import javafx.util.Pair;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
