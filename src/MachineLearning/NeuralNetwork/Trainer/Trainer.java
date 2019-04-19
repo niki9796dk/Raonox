@@ -33,11 +33,11 @@ public class Trainer {
             double error = TM.train(network, inputs, outputs);
 
             // TODO: Del af midlertid error metode
-            /*
-            if (i == 0 || (i + 1) % 1 == 1) {
+
+            if (i == 0 || (i + 1) % 10 == 0) {
                 System.out.println("[" + (i + 1) + "/" + iterations + "] " + error);
             }
-            */
+
 
             //this.error = TM.getErrorRate();
 

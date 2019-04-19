@@ -93,6 +93,63 @@ public class Matrices {
      *             *
      ***************/
 
+    public static Matrix mapRowValues(Matrix A, double minValue, double maxValue) {
+        MatrixBuilder builder = new MatrixBuilder(A.getRows(), A.getColumns(), true);
+
+        for (int row = 0; row < A.getRows(); row++) {
+            // Find min and max values
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_NORMAL;
+
+            for (int col = 0; col < A.getColumns(); col++) {
+                double entry = A.getEntry(row, col);
+
+                min = (entry < min) ? entry : min;
+                max = (entry > max) ? entry : max;
+            }
+
+            // Scale values
+            for (int col = 0; col < A.getColumns(); col++) {
+                double entry = A.getEntry(row, col);
+
+                builder.setEntry(row, col, mapValue(entry, min, max, minValue, maxValue));
+            }
+        }
+
+        return builder.build();
+    }
+
+    public static Matrix mapColValues(Matrix A, double minValue, double maxValue) {
+        MatrixBuilder builder = new MatrixBuilder(A.getRows(), A.getColumns(), true);
+
+        for (int col = 0; col < A.getColumns(); col++) {
+            // Find min and max values
+            double min = Double.MAX_VALUE;
+            double max = Double.MIN_NORMAL;
+
+            for (int row = 0; row < A.getRows(); row++) {
+                double entry = A.getEntry(row, col);
+
+                min = (entry < min) ? entry : min;
+                max = (entry > max) ? entry : max;
+            }
+
+            // Scale values
+            for (int row = 0; row < A.getRows(); row++) {
+                double entry = A.getEntry(row, col);
+
+                builder.setEntry(row, col, mapValue(entry, min, max, minValue, maxValue));
+            }
+        }
+
+        return builder.build();
+    }
+
+    private static double mapValue(double x, double in_min, double in_max, double out_min, double out_max)
+    {
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    }
+
     // Returns a simplified Matrix where every value in the matrix is simplified to X decimal points. - The original matrix is unaltered.
     public static Matrix simplify(Matrix A, int places) {
         int rowCount = A.getRows();
